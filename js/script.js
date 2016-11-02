@@ -14,8 +14,6 @@ $(document).ready(function() {
 		var windowHeight = $(window).height();
 
 		var height = pageHeight-windowHeight;
-		console.log("scroll: " + scroll);
-		//console.log(height);
 
 		var classSet = [
 		'.a1',//0
@@ -43,15 +41,7 @@ $(document).ready(function() {
 			$('div:first').addClass("sun1");};
 			if (classSet[i]=='.a6') {$('.a3').remove()};	
 			i++;
-				//console.log(imageSet[i]);
 			};
-
-			// if (scroll>= 340 && scroll<1850) {
-			// 	$( this ).on( event );
-			// 	$('.s1').addClass('played');
-			// 	var audio = new Audio('sound/rooster.mp3');
-			// 	audio.play();
-			// };
 
 
 		});
