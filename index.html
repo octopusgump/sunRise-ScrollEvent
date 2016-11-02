@@ -180,11 +180,11 @@ data-1100p="background-color: rgb(16,29,48)"></div>
 
  <script type="text/javascript">
   var s = skrollr.init({
-    render: function(data) {
-      if(data.curTop >= data.maxTop) {
-        this.setScrollTop(0, true);  
-      }
-    }
+    // render: function(data) {
+    //   if(data.curTop >= data.maxTop) {
+    //     this.setScrollTop(0, true);  
+    //   }
+    // }
   });
 
 var i = 0;
@@ -230,8 +230,10 @@ $(document).ready(function() {
       $('div:first').addClass("sun1");};
       if (classSet[i]=='.a6') {$('.a3').remove()};  
       i++;
+      window.scrollTo(0, 0);
       };
 
+      s.refresh();
 
     });
 
