@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
   <script type="text/javascript" src="js/AudioFade.js"></script>
 
 </head>
@@ -30,18 +31,18 @@ data-1000p="background-color: rgb(69,123,157)"
 data-1100p="background-color: rgb(16,29,48)">
 
 <div data-0p="left:100%; top: 380px; background:rgb(245,203,92)"
- data-670p="left:45%; top: 250px; background:rgb(230,57,70)"
- data-1350p="left:-30%; top: 380px; background:rgb(245,203,92)"></div>
+data-670p="left:45%; top: 250px; background:rgb(230,57,70)"
+data-1350p="left:-30%; top: 380px; background:rgb(245,203,92)"></div>
 <!-- <div class="sun1"
 data-0p="left:100%; top: 380px; background:rgb(245,203,92)"
  data-670p="left:45%; top: 250px; background:rgb(230,57,70)"
  data-1350p="left:-30%; top: 380px; background:rgb(245,203,92)"></div> -->
 
-<div class ="sun"
-data-0="background:rgb(245,203,92)"
-data-300p="background:rgb(247,238,227)"
-data-700p="background:rgb(230,57,70)"
-data-1100p="background:rgb(245,203,92)">
+ <div class ="sun"
+ data-0="background:rgb(245,203,92)"
+ data-300p="background:rgb(247,238,227)"
+ data-700p="background:rgb(230,57,70)"
+ data-1100p="background:rgb(245,203,92)">
  <img
  data-0="opacity:0"
  data-780p=""
@@ -49,7 +50,7 @@ data-1100p="background:rgb(245,203,92)">
  data-890p="opacity:1"
  data-930p=""
  data-1000p="opacity:0"
-  src="gif/owl.gif">
+ src="gif/owl.gif">
 </div>
 
 <div class="s1">
@@ -129,36 +130,36 @@ data-1100p="background:rgb(245,203,92)">
 </div>
 
 <div class="a1"
-  data-0="left:0%"
-  data-1350p="left:-280%">
-  <!-- <img src="gif/cityline.png"> --></div>
+data-0="left:0%"
+data-1350p="left:-280%">
+<!-- <img src="gif/cityline.png"> --></div>
 </div>
 
 <!-- white train -->
 <div class="a2"
-  data-0="left:-110%"
-  data-1350p="left:100%">
-  <!-- <img src="gif/train.gif"> --></div>
+data-0="left:-110%"
+data-1350p="left:100%">
+<!-- <img src="gif/train.gif"> --></div>
 
 <!-- blue train -->
 <div class="a3"
-  data-0="left:-110%;"
-  data-1350p="left:100%; "></div>
+data-0="left:-110%;"
+data-1350p="left:100%; "></div>
 <div class="a4"
- data-570p="right:100%"
- data-680p="right:30%"
- data-700p=""
- data-800p="right:-60%"></div>
- <div class="a4e"
-  data-520p="right:100%"
- data-600p="right:30%"
- data-670p=""
- data-740p="right:-60%"></div>
+data-570p="right:100%"
+data-680p="right:30%"
+data-700p=""
+data-800p="right:-60%"></div>
+<div class="a4e"
+data-520p="right:100%"
+data-600p="right:30%"
+data-670p=""
+data-740p="right:-60%"></div>
 <div class="a5"></div>
 <div class="a6"></div>
 
-  <div id="helper"
-    data-0="background-color: rgb(16,29,48)"
+<div id="helper"
+data-0="background-color: rgb(16,29,48)"
 data-150p="background-color: rgb(241,250,258)"
 data-600p="background-color: rgb(168,218,220)"
 data-800p=""
@@ -177,32 +178,20 @@ data-1100p="background-color: rgb(16,29,48)"></div>
  --> 
 
  <script src="js/skrollr.min.js"></script>
-
+ <script type="text/javascript" src="js/script.js"></script>
  <script type="text/javascript">
   var s = skrollr.init({
-    // render: function(data) {
-    //   if(data.curTop >= data.maxTop) {
-    //     this.setScrollTop(0, true);  
-    //   }
-    // }
+    render: function(data) {
+      if(data.curTop >= data.maxTop) {
+
+        this.setScrollTop(0, true);  
+        doIt();
+      }
+    }
   });
-
-var i = 0;
-$(document).ready(function() {
-
-  $(window).scroll(function (event) {
-    var scroll = $(window).scrollTop();
-    // var pageHeight = $(document).height;
-    var body = document.body,
-    html = document.documentElement;
-
-    var pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-      html.clientHeight, html.scrollHeight, html.offsetHeight );
-    
-
-    var windowHeight = $(window).height();
-
-    var height = pageHeight-windowHeight;
+  
+  var i = 0;
+  function doIt( ) {
 
     var classSet = [
     '.a1',//0
@@ -220,24 +209,16 @@ $(document).ready(function() {
     'lol.png',
     'lol.png'
     ];
+    $(classSet[i]).append("<img src='gif/"+ imageSet[i] + "'/>");
+    if (classSet[i]=='.a3') {$('.a2').remove();};
+    if (classSet[i]=='.a4') {$('.a1').remove();
+    $('.a4e').append("<img src='gif/elephant.gif'/>");};
+    if (classSet[i]=='.a5') {$('.sun').remove();
+    $('div:first').addClass("sun1");};
+    if (classSet[i]=='.a6') {$('.a3').remove()};  
+    i++;
 
-    if (scroll >= height) {
-      $(classSet[i]).append("<img src='gif/"+ imageSet[i] + "'/>");
-      if (classSet[i]=='.a3') {$('.a2').remove();};
-      if (classSet[i]=='.a4') {$('.a1').remove();
-      $('.a4e').append("<img src='gif/elephant.gif'/>");};
-      if (classSet[i]=='.a5') {$('.sun').remove();
-      $('div:first').addClass("sun1");};
-      if (classSet[i]=='.a6') {$('.a3').remove()};  
-      i++;
-      setTimeout(window.scrollTo(0, 0),100);
-      };
-
-      s.refresh();
-
-    });
-
-});
+  }
 
 </script>
 

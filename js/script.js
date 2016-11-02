@@ -1,50 +1,24 @@
-var i = 0;
-$(document).ready(function() {
 
-	$(window).scroll(function (event) {
-		var scroll = $(window).scrollTop();
-		// var pageHeight = $(document).height;
-		var body = document.body,
-		html = document.documentElement;
+// $(document).ready(function() {
 
-		var pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-			html.clientHeight, html.scrollHeight, html.offsetHeight );
-		
+//   $(window).scroll(function (event) {
+//     var scroll = $(window).scrollTop();
+//     // var pageHeight = $(document).height;
+//     var body = document.body,
+//     html = document.documentElement;
 
-		var windowHeight = $(window).height();
+//     var pageHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+//       html.clientHeight, html.scrollHeight, html.offsetHeight );
+    
 
-		var height = pageHeight-windowHeight;
+//     var windowHeight = $(window).height();
 
-		var classSet = [
-		'.a1',//0
-		'.a2',
-		'.a3',
-		'.a4',
-		'.a5',
-		'.a6',
-		];
-		var imageSet = [
-		'cityline.png',//0
-		'train2.gif',
-		'train.gif',
-		'elephant.gif',
-		'lol.png',
-		'lol.png'
-		];
+//     var height = pageHeight-windowHeight;
 
-		if (scroll >= height) {
-			$(classSet[i]).append("<img src='gif/"+ imageSet[i] + "'/>");
-			if (classSet[i]=='.a3') {$('.a2').remove();};
-			if (classSet[i]=='.a4') {$('.a1').remove();
-			$('.a4e').append("<img src='gif/elephant.gif'/>");};
-			if (classSet[i]=='.a5') {$('.sun').remove();
-			$('div:first').addClass("sun1");};
-			if (classSet[i]=='.a6') {$('.a3').remove()};	
-			i++;
-			};
+    
 
 
-		});
 
-});
-
+    
+//     });
+// });
